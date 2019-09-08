@@ -1,6 +1,46 @@
+window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+});
+
+
 var strtbtn = document.getElementById("start");
 $(strtbtn).click(function(){
   countdown();
+
+  $(document).keydown(function(e){
+    pressed = e.which;
+    // console.log(pressed);
+  })
+  //
+  // do{
+  //   if($(document).keydown()){
+  //     if(pressed != para.charCodeAt(i)){
+  //       mistakes++;
+  //       console.log(pressed + "and " + para.charCodeAt(i));
+  //     }
+  //     else{
+  //       console.log(pressed + "and " + para.charCodeAt(i));
+  //     }
+  //     i++;
+  //   }
+  // }
+  // while(para.charAt(i));
+
+
+
+
+  // for(var i=0; i<total; i++){
+  //   if($(document).keydown()){
+  //     if(pressed != para.charCodeAt(i)){
+  //       mistakes++;
+  //       console.log(pressed + "and " + para.charCodeAt(i));
+  //
+  //     }
+  //     else{
+  //       console.log(pressed + "and " + para.charCodeAt(i));
+  //     }
+  //   }
+  // }
 })
 // strtbtn.onclick(countdown(););
         var mins = 1;
@@ -63,13 +103,11 @@ var pressed;
 var i=0;
 
 var total = para.length;
-//
-// $(document).keydown(function(e){
-//   pressed = e.which;
-// })
-//
-// while(para.charAt(i) != '\0'){
+
+// while(para.charAt(i)){
 //   if(pressed != para.charCodeAt(i)){
+//     console.log(pressed);
+//     console.log(para.charCodeAt(i));
 //     mistakes++;
 //     i++;
 //   }
@@ -78,14 +116,27 @@ var total = para.length;
 // var sentence = 'The quick brown fox jumps over the lazy dog.';
 
 var index = 4;
-while(para.charAt(i) != '\0'){
-  console.log("good");
-}
+// while(para.charAt(i) != '\0'){
+//   console.log("good");
+// }
 
 console.log('The character code ' + para.charCodeAt(index) + ' is equal to ' + para.charAt(index));
 
 score = total - mistakes;
 var submit = document.getElementById("submit");
+
+var text = document.querySelector("#text");
+var para2 = text.value;
+
 $(submit).click(function(){
+  for(var i=0; i<para2.length; i++){
+    if(para2.charAt(i) != para.charAt(i)){
+      mistakes++;
+      console.log("incorrect");
+    }
+    else{
+      console.log("correct");
+    }
+  }
   alert("your score is "+score);
 })
